@@ -1,0 +1,76 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <div class="brdr w-25 mb-3"></div>
+                <h2 class="h4">Trending <br> Movies <br> Right Now</h2>
+                <p class="text-muted">Most Watched Movies By Week</p>
+                <div class="brdr w-75 mt-3"></div>
+            </div>
+        </div>
+
+        <div class="col-md-2" *ngFor="let movie of movies">
+            <div class="card-img my-2 position-relative">
+                <a [routerLink]="['/details',movie.id,movie.media_type]">
+                <img [src]=" 'https://image.tmdb.org/t/p/w500'+movie.poster_path" alt="" class="w-100 img-fluid">
+                <h5 class="text-center">{{movie.title}}</h5>
+                <div class="position-absolute top-0 left-0 text-bg-info">{{movie.vote_average}}</div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+<!-- show trending TV -->
+   <section class="my-2">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <div class="brdr w-25 mb-3"></div>
+                <h2 class="h4">Trending <br> TV <br> Right Now</h2>
+                <p class="text-muted">Most Watched TV By Week</p>
+                <div class="brdr w-75 mt-3"></div>
+            </div>
+        </div>
+
+        <div class="col-md-2" *ngFor="let tv of tvs">
+           <a [routerLink]="['/details',tv.id,tv.media_type]">
+            <div class="card-img my-2 position-relative">
+                <img [src]=" 'https://image.tmdb.org/t/p/w500'+tv.poster_path" alt="" class="w-100">
+                <h5 class="text-center">{{tv.name}}</h5>
+                <div class="position-absolute top-0 left-0 text-bg-info">{{tv.vote_average}}</div>
+            </div>
+           </a>
+        </div>
+
+    </div>
+   </section>
+
+   <!-- show trending person -->
+
+   <section class="my-3">
+    <div class="row"> 
+        <div class="col-md-4">
+            <div>
+                <div class="brdr w-25 mb-3"></div>
+                <h2 class="h4">Trending <br> person <br> Right Now</h2>
+                <p class="text-muted">Most Watched person By Week</p>
+                <div class="brdr w-75 mt-3"></div>
+            </div>
+        </div>
+
+        <div class="col-md-2" *ngFor="let person of persons">
+            <div class="card-img my-2 position-relative">
+                <a [routerLink]="['/details',person.id,person.media_type]">
+                    <img [src]=" 'https://image.tmdb.org/t/p/w500'+person.profile_path" alt="" class="w-100">
+                <h5 class="text-center">{{person.name}}</h5>
+                </a>
+                <div class="position-absolute top-0 left-0 text-bg-info">{{person.vote_average}}</div>
+            </div>
+        </div>
+
+    </div>
+   </section> 
+
+
+</div>

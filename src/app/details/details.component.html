@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img [src]=" 'https://image.tmdb.org/t/p/w500'+movieDetils?.poster_path" class="w-100" alt="">
+            <img [src]="'https://image.tmdb.org/t/p/w500'+movieDetils?.profile_path" alt="" class="w-100">
+        </div>
+        <div class="col-md-8">
+            <h3>{{movieDetils?.original_title}} {{movieDetils?.name}}</h3>
+            <span *ngIf="movieDetils?.original_language">originalLanguage:- {{movieDetils?.original_language}}</span>
+            <p class="mt-2 lead">{{movieDetils?.overview}}{{movieDetils?.biography}}</p>
+            <h3 *ngIf="movieDetils?.release_date"> release date:- {{movieDetils?.release_date}}</h3>
+            <h3 *ngIf="movieDetils?.vote_average">vote average:- {{movieDetils?.vote_average}}</h3>
+            <h3 *ngIf="movieDetils?.birthday"> birthday:- {{movieDetils?.birthday}}</h3>
+            <div class="row mt-4 g-3">
+                <h2 class="text-center" *ngIf="movieDetils?.poster_path">similar movies</h2>
+                <div class="col-md-3" *ngFor="let smailerMovie of smailerMovies" (click)="getMovieDetils(media_type,smailerMovie.id)">
+                    <img [src]="'https://image.tmdb.org/t/p/w500'+smailerMovie?.poster_path" alt="" class="w-100">
+                    <h5 class="lead">{{smailerMovie?.title}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>

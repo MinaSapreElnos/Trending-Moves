@@ -1,0 +1,47 @@
+
+<div class="w-75 mx-auto py-4">
+  <h3>Register Now </h3>
+  <form [formGroup]="registerForm" (ngSubmit)="register(registerForm)">
+    <label>name</label>
+    <input type="text" class="form-control my-2" formControlName="name">
+    <ul class="alert alert-danger list-unstyled" *ngIf="registerForm.get('name')?.errors&& registerForm.get('name')?.touched">
+      <li *ngIf="registerForm.get('name')?.getError('required')">Name is required</li>
+      <li *ngIf="registerForm.get('name')?.getError('minlength')">minLength 3 chat</li>
+    </ul>
+
+    <label>email</label>
+    <input type="email" class="form-control my-2" formControlName="email">
+    <ul class="alert alert-danger list-unstyled" *ngIf="registerForm.get('email')?.errors&& registerForm.get('email')?.touched">
+      <li *ngIf="registerForm.get('email')?.getError('required')">email is required</li>
+      <li *ngIf="registerForm.get('email')?.getError('email')"> email is not valid</li>
+    </ul>
+
+    <label>password</label>
+    <input type="password" class="form-control" formControlName="password">
+    <ul class="alert alert-danger list-unstyled" *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched">
+      <li *ngIf="registerForm.get('password')?.getError('required')">password is required</li>
+      <li *ngIf="registerForm.get('password')?.getError('pattern')">password is not valid</li>
+    </ul>
+
+    <label>rePassword</label>
+    <input type="password" class="form-control my-2" formControlName="rePassword">
+    <ul class="alert alert-danger list-unstyled" *ngIf="registerForm.get('rePassword')?.errors && registerForm.get('rePassword')?.touched">
+      <li *ngIf="registerForm.get('rePassword')?.getError('required')">rePassword is required</li>
+      <li *ngIf="registerForm.get('rePassword')?.getError('pattern')">rePassword is not valid</li>
+    </ul>
+
+    <label>phone</label>
+    <input type="number" class="form-control my-2" formControlName="phone">
+    <ul class="alert alert-danger list-unstyled" *ngIf="registerForm.get('phone')?.errors && registerForm.get('phone')?.touched">
+      <li *ngIf="registerForm.get('phone')?.getError('required')">phone is required</li>
+      <li *ngIf="registerForm.get('phone')?.getError('pattern')">phone is not valid</li>
+    </ul>
+
+    <p class="text-center m-3 fs-4">{{apiError}}</p>
+
+    <button type="submit" class="btn btn-outline-info my-4 px-4 d-block m-auto" [disabled]="registerForm.invalid">Register</button>
+  </form>
+
+  
+  
+</div>

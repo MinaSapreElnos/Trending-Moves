@@ -1,0 +1,15 @@
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-2" *ngFor="let person of persons">
+        <div class="card-img my-2 position-relative">
+            <a [routerLink]="['/details',person.id,person.media_type]">
+                <img [src]=" 'https://image.tmdb.org/t/p/w500'+person.profile_path" alt="" class="w-100">
+            <h5 class="text-center">{{person.name}}</h5>
+            </a>
+            <div class="position-absolute top-0 left-0 text-bg-info">{{person.vote_average}}</div>
+        </div>
+    </div>
+    </div>
+
+</section>

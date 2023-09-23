@@ -1,0 +1,24 @@
+
+<div class="w-75 mx-auto py-4">
+  <h3>Login Now </h3>
+  <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)"> 
+    <label>email</label>
+    <input type="email" class="form-control my-2" formControlName="email">
+    <ul class="alert alert-danger list-unstyled" *ngIf="loginForm.get('email')?.errors&& loginForm.get('email')?.touched">
+      <li *ngIf="loginForm.get('email')?.getError('required')">email is required</li>
+      <li *ngIf="loginForm.get('email')?.getError('email')"> email is not valid</li>
+    </ul>
+
+    <label>password</label>
+    <input type="password" class="form-control" formControlName="password">
+    <ul class="alert alert-danger list-unstyled" *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">
+      <li *ngIf="loginForm.get('password')?.getError('required')">password is required</li>
+      <li *ngIf="loginForm.get('password')?.getError('pattern')">password is not valid</li>
+    </ul>
+
+    <p class="text-center m-4 text-bg-danger">{{apiError}}</p>
+
+    <button class="btn btn-outline-info d-block m-auto my-5 px-4" [disabled]="loginForm.invalid">Login</button>
+  </form>
+ 
+</div>
